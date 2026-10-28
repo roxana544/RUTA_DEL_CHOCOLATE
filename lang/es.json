@@ -1,0 +1,8 @@
+{
+    "status.pending": "Pendiente",
+    "status.confirmed": "Confirmada",
+    "status.completed": "Completada",
+    "status.cancelled": "Cancelada",
+    "status.ready": "Listo para recoger",
+    "status.picked_up": "Entregado"
+}

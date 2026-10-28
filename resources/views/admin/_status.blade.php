@@ -1,0 +1,2 @@
+@php($colors = ['pending' => 'bg-yellow-500/15 text-yellow-200', 'confirmed' => 'bg-sky-500/15 text-sky-200', 'ready' => 'bg-sky-500/15 text-sky-200', 'completed' => 'bg-emerald-500/15 text-emerald-200', 'picked_up' => 'bg-emerald-500/15 text-emerald-200', 'cancelled' => 'bg-red-500/15 text-red-200'])
+<span class="inline-block rounded-full px-2.5 py-0.5 text-xs font-semibold {{ $colors[$status] ?? '' }}">{{ __('status.'.$status, [], 'es') }}</span>

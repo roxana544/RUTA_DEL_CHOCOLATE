@@ -1,0 +1,17 @@
+# Permite abrir el sitio en http://localhost/ruta-del-chocolate/ (sin /public en la URL).
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+
+    # Pasar la cabecera Authorization a PHP
+    RewriteCond %{HTTP:Authorization} .
+    RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
+
+    RewriteRule ^index\.php$ - [L]
+
+    # Archivos públicos (CSS/JS compilados, imágenes subidas)
+    RewriteRule ^(build/.*|storage/.*|favicon\.ico|robots\.txt)$ public/$1 [L]
+    RewriteRule ^public/ - [L]
+
+    # Todo lo demás (incluidos .env, vendor, etc.) lo atiende Laravel
+    RewriteRule ^ index.php [L]
+</IfModule>
