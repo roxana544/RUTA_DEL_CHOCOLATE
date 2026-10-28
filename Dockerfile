@@ -34,5 +34,8 @@ RUN composer install --no-dev --optimize-autoloader \
     && npm install \
     && npm run build \
     && chown -R www-data:www-data /var/www/html/storage /var/www/html/bootstrap/cache
+# Ejecutar migraciones automáticamente al iniciar
+RUN php artisan migrate --force || true
+RUN php artisan db:seed --force || true
 
 EXPOSE 80
